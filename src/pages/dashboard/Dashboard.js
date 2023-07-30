@@ -2,7 +2,7 @@ import React from 'react';
 
 import { PageHeaderDiv } from '../../components/general';
 
-export default function Dashboard() {
+export default function DashboardPage() {
   return (
     <div className="dashboard-content-layout">
       <PageHeaderDiv title='Dashboard'/>
