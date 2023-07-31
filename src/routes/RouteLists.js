@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Navigate, NavLink, Outlet } from 'react-router-dom';
 
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Row } from 'antd';
 import {
   LogoutOutlined,
   LineChartOutlined,
@@ -12,6 +12,7 @@ import logo from '../logo.svg';
 import { useAuth } from '../hooks/useAuth';
 
 import DashboardPage from '../pages/dashboard/Dashboard';
+import FoodLookUpPage from '../pages/foodLookUp/FoodLookUp';
 
 import NotFoundPage from './404';
 
@@ -61,9 +62,11 @@ export default function RouteList() {
       <Route path="*" element={<Navigate to="/not-found" />} />
     </>
   );
+  // TODO need to find a way to generate route depend on menuItem object
   const handleAdminRoutes = (role) => (
     <Route path="/" element={<AppLayout />}>
       {commonRoutes()}
+      <Route key="/foodLoopUp" path="/foodLoopUp" element={<FoodLookUpPage />} />
     </Route>
   );
 
@@ -106,6 +109,15 @@ export default function RouteList() {
         label: (
           <NavLink to="/">
             Dashboard
+          </NavLink>
+        ),
+        icon: <LineChartOutlined />,
+      },
+      {
+        key: '/foodLoopUp',
+        label: (
+          <NavLink to="/foodLoopUp">
+            FoodLoopUp
           </NavLink>
         ),
         icon: <LineChartOutlined />,
@@ -160,10 +172,11 @@ export default function RouteList() {
             width={sidebarWidth}
             collapsible
             collapsed={collapsed}
-            onCollapse={handleCollapse}>
-            <div>
+            onCollapse={handleCollapse}
+          >
+            <Row align={"middle"}>
               <img className="logo" src={logo} alt="logo" style={{ width: sidebarWidth }} />
-            </div>
+            </Row>
             <Menu
               mode="inline"
               items={renderRoleMenuNew()}

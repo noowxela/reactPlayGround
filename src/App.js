@@ -9,6 +9,7 @@ import { PATHS } from './constants/routes';
 import RouteList from './routes/RouteLists';
 import {
   ConfigProvider,
+  theme,
 } from 'antd';
 import enUSIntl from 'antd/lib/locale/en_US';
 
@@ -37,7 +38,14 @@ function App() {
 
   return (
     
-    <ConfigProvider locale={enUSIntl}>
+    <ConfigProvider
+      locale={enUSIntl}
+      theme={{
+        token: {
+          colorPrimary: 'blossom',
+        },
+      }}
+    >
       <Routes className="App">
         {/** Protected Routes */}
         {/** Wrap all Route under ProtectedRoutes element */}
