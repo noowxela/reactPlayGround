@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/login/Login';
 import PrivateRoute from './utils/PrivateRoute';
@@ -12,11 +12,12 @@ import {
   theme,
 } from 'antd';
 import enUSIntl from 'antd/lib/locale/en_US';
-
+import { useAuth } from './hooks/useAuth';
 
 
 function App() {
-  
+  const { darkMode, themeColor } = useAuth();
+
   useEffect(() => {
     window.addEventListener('error', e => {
       if (e.message === 'ResizeObserver loop limit exceeded') {
@@ -35,14 +36,14 @@ function App() {
       }
     });
   }, []);
-
   return (
     
     <ConfigProvider
       locale={enUSIntl}
       theme={{
+        algorithm: darkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: {
-          colorPrimary: 'blossom',
+          colorPrimary: themeColor,
         },
       }}
     >

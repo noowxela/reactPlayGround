@@ -13,6 +13,7 @@ import { useAuth } from '../hooks/useAuth';
 
 import DashboardPage from '../pages/dashboard/Dashboard';
 import FoodLookUpPage from '../pages/foodLookUp/FoodLookUp';
+import ThemeSetPage from '../pages/themeSet/ThemeSet';
 
 import NotFoundPage from './404';
 
@@ -67,6 +68,7 @@ export default function RouteList() {
     <Route path="/" element={<AppLayout />}>
       {commonRoutes()}
       <Route key="/foodLoopUp" path="/foodLoopUp" element={<FoodLookUpPage />} />
+      <Route key="/themeSet" path="/themeSet" element={<ThemeSetPage />} />
     </Route>
   );
 
@@ -122,6 +124,15 @@ export default function RouteList() {
         ),
         icon: <LineChartOutlined />,
       },
+      {
+        key: '/themeSet',
+        label: (
+          <NavLink to="/themeSet">
+            ThemeSet
+          </NavLink>
+        ),
+        icon: <LineChartOutlined />,
+      },
       ...defaultAll
     ],
     admin002: [
@@ -168,7 +179,7 @@ export default function RouteList() {
       <div>
         <Layout style={{ minHeight: '100vh' }}>
           <Sider
-            className="menu-layout"
+            // className="menu-layout"
             width={sidebarWidth}
             collapsible
             collapsed={collapsed}
