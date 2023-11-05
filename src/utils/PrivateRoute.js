@@ -1,7 +1,6 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-import { getToken } from './AuthService';
-
+import React from "react";
+import { Navigate, Outlet } from "react-router-dom";
+import { getToken } from "./AuthService";
 
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-confusing-arrow */
@@ -10,8 +9,7 @@ import { getToken } from './AuthService';
 
 // handle the private routes
 function PrivateRoute({ component: Component, ...rest }) {
-  
-  return getToken()?<Outlet/>: <Navigate to="/login"/>
+  return getToken() ? <Outlet /> : <Navigate to="/login" />;
 }
 
 export default PrivateRoute;

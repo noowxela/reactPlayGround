@@ -1,13 +1,21 @@
-import React from 'react';
+import React from "react";
+import { Layout } from "antd";
 
-import { PageHeaderDiv } from '../../components/general';
+const { Header, Content } = Layout;
 
 export default function DashboardPage() {
   return (
-    <div className="dashboard-content-layout">
-      <PageHeaderDiv title='Dashboard'/>
-      <div className="management-content">
-      </div>
-    </div>
+    <Layout style={{ background: "transparent", minHeight: "100vh" }}>
+      <Header
+        style={{
+          padding: 0,
+          textAlign: "center",
+          backgroundColor: "transparent",
+        }}
+      >
+        Dashboard
+      </Header>
+      <Content style={{ padding: "40px 32px" }}></Content>
+    </Layout>
   );
 }
