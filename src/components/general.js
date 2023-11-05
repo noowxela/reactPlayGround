@@ -1,10 +1,10 @@
-import React from 'react';
-  
-import {
-  LoadingOutlined,
-} from '@ant-design/icons';
-  
-const PageHeaderDiv = (props) => <div className="breadcrumb-list-alex"> {props.title} </div>;
+import React from "react";
+
+import { LoadingOutlined } from "@ant-design/icons";
+
+const PageHeaderDiv = (props) => (
+  <div className="breadcrumb-list-alex"> {props.title} </div>
+);
 
 const antIcon = (
   <LoadingOutlined
@@ -16,13 +16,7 @@ const antIcon = (
 );
 
 const addLabel = (name) => (
-  <div style={{marginLeft: "2px", width: "300px", color:"gray"}}>
-    {name}
-  </div>
-)
+  <div style={{ marginLeft: "2px", width: "300px", color: "gray" }}>{name}</div>
+);
 
-export {
-    PageHeaderDiv,
-    antIcon,
-    addLabel,
-}
+export { PageHeaderDiv, antIcon, addLabel };
