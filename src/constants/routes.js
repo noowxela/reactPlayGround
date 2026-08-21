@@ -1,10 +1,5 @@
 const PATHS = {
-
-    login : "/login",
-
-}
-
-
-module.exports = {
-    PATHS
+  login: "/login",
 };
+
+export { PATHS };
